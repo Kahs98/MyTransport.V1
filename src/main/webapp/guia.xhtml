@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Guías:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Guías</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idGuia" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idGuia"
+				styleClass="form-control" value="#{guiaController.guia.idGuia}"
+				required="true" />
+				
+			<h:outputLabel for="nombreGuia" value="Nombres del Guia"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreGuia"
+				styleClass="form-control"
+				value="#{guiaController.guia.nombreGuia}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="apellidoGuia" value="Apellidos del Guia"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidoGuia"
+				styleClass="form-control"
+				value="#{guiaController.guia.apellidoGuia}" maxlength="40"
+				required="true" />
+				
+				
+			<h:outputLabel for="dniGuia" value="DNI"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="dniGuia"
+				styleClass="form-control"
+				value="#{guiaController.guia.dniGuia}" maxlength="8"
+				required="true" />
+
+			
+			<h:outputLabel for="celularGuia" value="Celular"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="celularGuia"
+				styleClass="form-control"
+				value="#{guiaController.guia.celularGuia}" maxlength="9"
+				required="true"/>
+				
+			<h:outputLabel for="emailGuia" value="email"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="emailGuia"
+				styleClass="form-control"
+				value="#{guiaController.guia.emailGuia}" maxlength="30"
+				required="true"/>	
+				
+				
+
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{guiaController.insertar()}"
+				styleClass="btn btn-primary " update="@form" style="background-color:#F50C33"
+				action="listGuia?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listGuia?faces-redirect=true" immediate="true"
+				styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D"/>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

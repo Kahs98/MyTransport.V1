@@ -1,0 +1,86 @@
+<ui:composition template="master.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:outputStylesheet name="css/main_base.css" />
+	
+	<ui:define name="title">
+		My Transport
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>My Transport</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		<p align="center" class="title-style" style="margin-bottom: 50px">Sistema de Gestión del Aplicativo</p>
+		<div class='container' align="center">
+			
+			
+			<div class='row'>
+				
+					<div class="card col-md-4 rounded-lg" style="width: 18rem;">
+  						<img class="img-fluid card-img-top rounded-lg" src="resources/img/images-logo.jpg" alt="Card image cap" style='width: 80%;
+   					 	object-fit: cover;'/>
+  						<div class="card-body">
+   					 		<h5 class="card-title">Vehiculos</h5>
+    						<a href="listVehiculo.xhtml" class="btn btn-primary botonVerMas" style="background-color:#13293D;">Ver más</a>
+  						</div>
+					</div>
+
+
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/usuarios-logo.png" alt="Card image cap" style='width: 90%;
+   				 		object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Registro de Usuarios</h5>
+    						<a href="listUsuario.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/localizacion-logo.png" alt="Card image cap" style='width: 60%;
+   						 object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Ubicacion</h5>
+    						<a href="listUbicacion.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/soporte-tecnico-logo.png" alt="Card image cap" style='width: 50%;
+   						 object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Servicios</h5>
+    						<a href="listServicio.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					
+					
+
+			</div> 
+		</div>
+	
+	
+			<div class='container' align="center" style="margin-top:50px">	
+				<div class='row'>
+				
+	
+					
+					
+				</div>
+			</div>
+			
+			
+		
+			
+			
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 

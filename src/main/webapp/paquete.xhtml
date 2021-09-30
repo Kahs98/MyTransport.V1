@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Paquetes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Paquete</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idPaquete" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idPaquete"
+				styleClass="form-control" value="#{paqueteController.paquete.idPaquete}"
+				required="true" />
+				
+			<h:outputLabel for="nombrePaquete" value="Nombre del Paquete "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombrePaquete"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.nombrePaquete}" maxlength="30"
+				required="true" />
+
+			<h:outputLabel for="fechaPaquete" value="Fecha "
+				styleClass="control-label" />
+			<p:calendar id="fechaPaquete" pattern="dd/MM/yyyy"
+				value="#{paqueteController.paquete.fechaPaquete}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+			
+			<h:outputLabel for="precioPaquete" value="Precio del Paquete "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="precioPaquete"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.precioPaquete}" maxlength="5"
+				required="true" />
+			
+				
+			<h:outputLabel for="numCupos" value="Numero de cupos disponibles"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="numCupos"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.numCupos}" maxlength="5"
+				required="true" />	
+				
+			<h:outputLabel for="lugarOrigen" value="Lugar de Partida"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="lugarOrigen"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.lugarOrigen}" maxlength="20"
+				required="true" />		
+				
+			<h:outputLabel for="lugarDestino" value="Lugar de Destino"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="lugarDestino"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.lugarDestino}" maxlength="20"
+				required="true" />		
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{paqueteController.insertar()}"
+				styleClass="btn btn-primary " update="@form" style="background-color:#F50C33"
+				action="listPaquete?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listPaquete?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

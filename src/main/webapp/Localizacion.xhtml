@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Ubicaciones:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Ubicaciones</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idUbicacion" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idUbicacion"
+				styleClass="form-control" value="#{UbicacionController.Ubicacion.idUbicacion}"
+				required="true" />
+						
+			
+			<h:outputLabel for="juramento" value="Juramento"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="juramento"
+				styleClass="form-control"
+				value="#{UbicacionController.Ubicacion.juramento}" maxlength="30"
+				required="true" />
+
+	
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{UbicacionController.insertar()}"
+				styleClass="btn btn-primary " update="@form"  style="background-color:#F50C33;"
+				action="listUbicacion?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listUbicacion?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

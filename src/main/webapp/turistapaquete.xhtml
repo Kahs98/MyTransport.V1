@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Asignación Turistas - Paquetes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Turista-Paquete</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>		
+			<h:outputLabel for="idTuristaPaquete" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idTuristaPaquete"
+				styleClass="form-control" value="#{turistaPaqueteController.turistapaquete.idTuristaPaquete}"
+				required="true" />
+				
+			<h:outputLabel for="numParticipantes" value="Participantes "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="numParticipantes"
+				styleClass="form-control"
+				value="#{turistaPaqueteController.turistapaquete.numParticipantes}" 
+				required="true" />
+				
+			<p:outputLabel for="cboTurista" value="Turista" />
+			
+			<p:selectOneMenu style="width=150px" id="cboTurista" value="#{turistaPaqueteController.turistapaquete.turista}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{turistaPaqueteController.listaTuristas}" var = "tur" 
+					itemLabel="#{tur.nombreTurista}" itemValue="#{tur}" style="width=150px"/>
+			</p:selectOneMenu> 		
+							
+			<p:outputLabel for="cboPaquete" value="Paquete" />
+			
+			<p:selectOneMenu id="cboPaquete" value="#{turistaPaqueteController.turistapaquete.paquete}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{turistaPaqueteController.listaPaquetes}" var = "paq" 
+					itemLabel="#{paq.lugarDestino}" itemValue="#{paq}"/>
+			</p:selectOneMenu> 		
+				
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{turistaPaqueteController.insertar()}"
+				styleClass="btn btn-primary " update="@form" style="background-color:#F50C33"
+				action="listTuristaPaquete?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listTuristaPaquete?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+				
+				
+				
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+		
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

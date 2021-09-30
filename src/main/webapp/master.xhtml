@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<title><ui:insert name="title"></ui:insert></title>
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
+		rel='stylesheet' type='text/css' />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/trekking.png" />
+
+	<script src="https://kit.fontawesome.com/989889714c.js" crossorigin="anonymous"></script>
+
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+	<h:outputStylesheet name="css/main_base.css" />
+	<h:outputStylesheet name="css/font_ico.css" />
+	<ui:insert name="headCont"></ui:insert>
+</h:head>
+<h:body>
+	<nav class="navbar navbar-default navbar-fixed-top base_primary" style="background-color: #13293D" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand"
+					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
+					src="resources/img/logo.jpg" alt="" height="50" /></a>
+			</div>
+
+		</div>
+	</nav>
+	<!--Contenido principal del DASHBOARD-->
+	
+	<div class="container base_fondo_fff pt-5"
+		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
+		<div class="row">
+			<!--left-->
+			<div class="col-md-3 pt-3" id="leftCol top_nav" style= "background-color:#13293D; height:600px;" >
+				<ul class="nav nav-stacked menu" id="sidebar" style="padding-top: 50px">
+					<li id="sidebar-1"><a href="panel.xhtml" style="color:white"><i class="fas fa-home"></i>Inicio</a></li>
+					<li id="sidebar-2"><a href="listServicios.xhtml" style="color:white"><i class="fab fa-servicestack"></i>Servicios</a></li>
+					<li id="sidebar-3"><a href="listUsuario.xhtml" style="color:white"><i class="fas fa-user"></i> Usuarios</a></li>
+					<li id="sidebar-4"><a href="listVehiculos.xhtml" style="color:white"><i class="fas fa-charging-station"></i>Vehiculos</a></li>
+					<li id="sidebar-5"><a href="listLocalizacion.xhtml" style="color:white"><i class="fas fa-map-marked-alt"></i>Ubicacion</a></li>				
+				</ul>
+			</div>
+			<!--/left-->
+
+			<!--right Pantalla PRINCIPAL-->
+			<div class="col-md-9 text-center" style="padding-right: 30px">
+				<h2 id="sec0" class="title-style">
+					<ui:insert name="titleCont">My Transport</ui:insert>
+				</h2>
+				
+				
+				<!-- seccion para el contenido -->
+				<ui:insert name="content">
+				</ui:insert>
+				
+				
+			</div>
+			<!--/right-->
+		</div>
+		<!--/row-->
+	</div>
+	<!--/container-->
+	<ui:insert name="footerCont">
+	</ui:insert>
+</h:body>
+</html>

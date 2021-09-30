@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Listado de Asignación de Turistas-Paquetes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Asignacion Turistas - Paquetes</span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+			
+			
+			
+			
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstPaquete" var="tp"
+							value="#{turistaPaqueteController.listaTuristaPaquetes}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{tp.idTuristaPaquete}">
+								<h:outputText value="#{tp.idTuristaPaquete}" />
+							</p:column>
+
+							<p:column headerText="Número de participantes" sortBy="#{tp.numParticipantes}">
+								<h:outputText value="#{tp.numParticipantes}" />
+							</p:column>
+							
+							<p:column headerText="Turista">
+								<h:outputText value="#{tp.turista.nombreTurista}"/>
+							</p:column>
+							
+							<p:column headerText="Paquete">
+								<h:outputText value="#{tp.paquete.nombrePaquete}"/>
+							</p:column>			
+							
+							<p:column headerText="Importe Total">
+								<h:outputText value="#{tp.numParticipantes*tp.paquete.precioPaquete}" />
+							</p:column>	
+							
+							<p:column headerText="Cupos disponible">
+								<h:outputText value="#{tp.paquete.numCupos-tp.numParticipantes}" />
+							</p:column>				
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listTuristaPaquete" value="Eliminar"
+									actionListener="#{turistaPaqueteController.eliminar(tp)}" />
+							</p:column>
+
+
+							
+						</p:dataTable>
+						
+					</div>
+
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Registrar nueva reserva"						
+							action="#{turistaPaqueteController.nuevoTuristaPaquete()}"
+							styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D;"/>
+				
+					</div>
+				</div>
+			</div>
+			
+		</h:form>
+		
+	</ui:define>
+
+	<ui:define name="footerCont">
+	</ui:define>
+	
+</ui:composition>
+</html>
